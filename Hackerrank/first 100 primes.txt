@@ -1,0 +1,21 @@
+int [] prime numbers(numOfPrimes)
+int [] primes = new int[numOfPrimes]
+for (int i, i=0;i<numOfPrimes;i++)
+	primes [i]=0;
+primes[0] = 2
+zeroStart=1
+int j=3
+lastPrime = numOfPrimes-1
+while (primes[lastPrime]==0)
+	boolean isPrime=True
+	for (int i, i=0; i<zeroStart, i++)
+		if (j%primes[i] ==0)
+			isPrime=false
+			break; 
+	if(isPrime==True)
+		primes[zeroStart]=j
+		j++
+		zeroStart++
+	else
+		j++
+return primes

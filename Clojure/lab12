@@ -1,0 +1,9 @@
+let rec zeroed l =
+    match l with
+    | [] -> false
+    | h :: t -> if  h=0 then true else find t;;
+
+let e=0.000001;;
+let rec exponentialing x s t f= if (t < e) then (s) else (exponentialing x (s +. t) (t *. x /. f) (1.0 +. f));;
+
+let exponential x= exponentialing x 0.0 1.0 1.0;;				
