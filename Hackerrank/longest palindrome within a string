@@ -5,11 +5,15 @@ def finder(a,b,edges,visited):
     found = False
     aEdges =edges[a]
     bEdges = edges[b]
+    unionOfedges = list(set(aEdges) | set(bEdges))
     if(b in visited):
-        edges[a]+=b
+        aEdges+=b
+        edges[a]= unionOfedges
+        edges[b]= unionOfedges
         found =True
     elif(b in aEdges):
-        edges[a] += bEdges
+        edges[a]= unionOfedges
+        edges[b]= unionOfedges
         found = True
     else:
         visited +=[a]
@@ -17,6 +21,8 @@ def finder(a,b,edges,visited):
             for newA in aEdges:
                 if(not(newA in visited)):
                     found = finder(newA,b,edges,visited)
+                    if (found):
+                        edges[newA]=list(set(bEdges) | set(edges[newA]))     
                 else:
                     continue
         else:
